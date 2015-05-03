@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503015442) do
+ActiveRecord::Schema.define(version: 20150503041140) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -206,6 +206,20 @@ ActiveRecord::Schema.define(version: 20150503015442) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "post_table_1s", force: :cascade do |t|
+    t.integer  "book_series_id"
+    t.string   "subject"
+    t.text     "content"
+    t.integer  "author_id"
+    t.integer  "member_table_number"
+    t.integer  "member_table_id"
+    t.integer  "viewer"
+    t.boolean  "sticky"
+    t.datetime "last_reply_time"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "publish_companies", force: :cascade do |t|
     t.string   "name",         limit: 50
     t.text     "address"
@@ -216,6 +230,29 @@ ActiveRecord::Schema.define(version: 20150503015442) do
     t.string   "email",        limit: 100
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "reply_table_1s", force: :cascade do |t|
+    t.integer  "post_table_number"
+    t.integer  "post_table_id"
+    t.text     "content"
+    t.integer  "author_id"
+    t.integer  "member_table_number"
+    t.integer  "member_table_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "report_table_1s", force: :cascade do |t|
+    t.integer  "report_from"
+    t.integer  "report_to"
+    t.integer  "post_table_number"
+    t.integer  "post_table_id"
+    t.integer  "reply_table_number"
+    t.integer  "reply_table_id"
+    t.text     "reason"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "transactions", force: :cascade do |t|
