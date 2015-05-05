@@ -7,6 +7,7 @@ class CreateReplyTable1s < ActiveRecord::Migration
       t.references :author
       t.integer :member_table_number
       t.integer :member_table_id
+      t.string :poster_nickname, :limit => "20"
 
       t.timestamps null: false
     end

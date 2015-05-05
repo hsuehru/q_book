@@ -6,7 +6,6 @@ class CreateAdministrators < ActiveRecord::Migration
       t.string :first_name, :limit => "100"
       t.string :last_name, :limit => "100"
       t.string :nickname, :limit => "20"
-      t.date :birthday
       t.references :administrator_type
       t.boolean :active
       t.string :web_session_id
