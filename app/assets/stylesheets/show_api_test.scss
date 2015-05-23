@@ -1,0 +1,42 @@
+// Place all the styles related to the show_api_test controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#header{
+  background-color:black;
+  color:white;
+  text-align:center;
+  padding:5px;
+}
+#footer{
+  background-color:black;
+  color:white;
+  text-align:center;
+  padding:5px;
+  clear:both;
+}
+#nav{
+  border-right:solid #ffaa00;
+  line-height:15px;
+  height:750px;
+  overflow:auto;
+  width:200px;
+  float:left;
+  padding-left:35px;
+}
+#content{
+  float:left;
+  padding:5px;
+}
+#nav_gropu{
+}
+#nav_title{
+padding-left:5px;
+color: #00BFFF;
+}
+#nav_item{
+padding-left:30px;
+}
+#author_body{
+position:absolute;
+left:50%;
+}

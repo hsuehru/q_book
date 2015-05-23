@@ -1,4 +1,35 @@
 Rails.application.routes.draw do
+  get 'show_api_test/index'
+  #post 'administrator/index'
+  #get 'administrator/login' => "administrators#login"
+
+  get 'administrators/login'
+  post 'administrators/login_create'
+  get 'administrators/logout'
+  get 'administrators/index'
+  get 'administrators/administrator_type_new'
+  get 'administrators/administrator_type_index'
+  get 'administrators/administrator_type_destory'
+  #post 'administrators/administrator_type_update'
+
+
+
+  resource :administrators do
+    collection do
+      post :block_account
+      post :administrator_type_create
+      post :administrator_type_update
+      patch :administrator_type_update
+      delete :administrator_type_destory
+    end
+    member do
+      post :logout
+      #post :administrator_type_update
+      get :block_account
+      get :administrator_type_edit
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -3,13 +3,13 @@
 <head>
   <title>QBook</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'show_api_test', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'show_api_test' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= yield %>
-<%= link_to "HOME", show_api_test_index_path%>
 
 </body>
 </html>

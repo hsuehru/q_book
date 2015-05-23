@@ -1,0 +1,10 @@
+<%= form_for @administrator_type, :url => { :controller => 'administrators', :action => 'administrator_type_create' } do |f| %>
+    <%= f.label :name, t("view.administrator_type_name") %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.submit t("view.send") %>
+    <br>
+    <% a="master" %>
+<% end %>
+

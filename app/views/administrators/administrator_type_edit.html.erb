@@ -1,0 +1,9 @@
+<%= form_for @administrator_type, :url => administrator_type_update_administrators_path(@administrator_type), :method => :patch do |f| %>
+    <%= f.label :name, t("view.administrator_type_name") %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.submit t("view.update") %>
+    <br>
+    <% a="master" %>
+<% end %>
+

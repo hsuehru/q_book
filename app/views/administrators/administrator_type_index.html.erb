@@ -1,0 +1,12 @@
+<ul>
+<% @administrator_types.each do |admin_type| %>
+  <li>
+    <%= admin_type.name %>
+  <%= link_to 'Edit', :controller => 'administrators',
+        :action => 'administrator_type_edit', :id => admin_type %>
+  <%= link_to 'delete',
+      administrator_type_destory_administrators_path(admin_type),
+      :method => :delete %>
+  </li>
+<% end %>
+</ul>

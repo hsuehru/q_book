@@ -29,17 +29,19 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "administrators", force: :cascade do |t|
-    t.string   "email",                 limit: 100
-    t.string   "password",              limit: 50
+    t.string   "email",                 limit: 100,                null: false
+    t.string   "password_digest",       limit: 100,                null: false
     t.string   "first_name",            limit: 100
     t.string   "last_name",             limit: 100
     t.string   "nickname",              limit: 20
-    t.integer  "administrator_type_id", limit: 4
-    t.boolean  "active",                limit: 1
+    t.integer  "administrator_type_id", limit: 4,                  null: false
+    t.boolean  "active",                limit: 1,   default: true
     t.string   "web_session_id",        limit: 255
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
   end
+
+  add_index "administrators", ["email"], name: "index_administrators_on_email", using: :btree
 
   create_table "advertises", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -104,9 +106,11 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "book_series", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",               limit: 255
+    t.integer  "publish_company_id", limit: 4
+    t.text     "author_id_list",     limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "book_table_1s", force: :cascade do |t|
@@ -229,16 +233,16 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "publish_companies", force: :cascade do |t|
-    t.string   "name",         limit: 50
-    t.text     "address",      limit: 65535
-    t.text     "manager_list", limit: 65535
-    t.text     "sales_list",   limit: 65535
-    t.text     "author_list",  limit: 65535
-    t.string   "tel",          limit: 15
-    t.string   "fax",          limit: 15
-    t.string   "email",        limit: 100
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                  limit: 50
+    t.text     "address",               limit: 65535
+    t.text     "manager_sales_id_list", limit: 65535
+    t.text     "sales_id_list",         limit: 65535
+    t.text     "author_id_list",        limit: 65535
+    t.string   "tel",                   limit: 15
+    t.string   "fax",                   limit: 15
+    t.string   "email",                 limit: 100
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "reply_table_1s", force: :cascade do |t|

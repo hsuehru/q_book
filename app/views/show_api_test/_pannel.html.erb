@@ -1,0 +1,38 @@
+<div id="nav_group">
+  <p id="nav_title">管理員</p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.administrator_register"),
+        new_administrators_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.administrator_login"),
+        administrators_login_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.administrator_logout"),
+        administrators_logout_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.administrator_type_new"),
+        administrators_administrator_type_new_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.administrator_list"),
+        administrators_index_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.administrator_type_list"),
+        administrators_administrator_type_index_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item"> Item IV</p>
+  <p id="nav_item"> Item V</p>
+  <p id="nav_item"> Item VI</p>
+  <p id="nav_item"> Item VII</p>
+  <p id="nav_item"> Item VIII</p>
+</div>

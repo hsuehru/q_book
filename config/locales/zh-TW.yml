@@ -1,0 +1,33 @@
+"zh-TW":
+  error_info:
+    login_error: "請確認帳號或密碼是否正確"
+    register_error: "註冊失敗，請稍後再次註冊"
+    duplicate_email_error: "電子信箱重複"
+    administrator_type_create_error: "名稱重複或字元無效"
+    block_administrator_account_error: "封鎖帳號失敗，請重新嘗試" 
+    wrrong_identity: "身分錯誤，請確認身分"
+    update_error: "更新資料失敗，請重新嘗試"
+    destroy_error: "資料刪除失敗，請確認所要刪除的資料是否存在"
+  view:
+    email: "電子郵件"
+    password: "密碼"
+    password_confirm: "密碼確認"
+    login: "登入"
+    logout: "登出"
+    update: "更新"
+    send: "送出"
+    name: "名字"
+    administrator_type_name: "管理員型態名稱"
+    
+    manager:
+      administrator_register: "管理員註冊"
+      administrator_update: "管理員資料編輯"
+      administrator_login: "管理員登入"
+      administrator_logout: "管理員登出"
+      administrator_type_new: "管理員型態新增"
+      administrator_list: "管理員清單"
+      administrator_type_list: "管理員型態清單"
+  db_type:
+    administrator_type:
+      master: "最高權限管理員"
+      normal: "管理員"

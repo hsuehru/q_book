@@ -1,0 +1,13 @@
+<%= form_for @administrator, :url => { :controller => 'administrators', :action => 'update' } do |f| %>
+    <%= f.label :password, t("view.password") %>
+    <%= f.password_field :password %>
+    <br>
+
+    <%= f.label :password_confirm, t("view.password_confirm") %>
+    <%= f.password_field :password_confirm %>
+    <br>
+
+    <%= f.submit t("view.update") %>
+    <br>
+<% end %>
+

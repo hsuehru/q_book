@@ -1,0 +1,11 @@
+<ul>
+<% @administrators.each do |admin| %>
+  <li>
+    <%= admin.email %>
+  <%= link_to 'Edit', :controller => 'administrators',
+        :action => 'edit', :id => admin %>
+  <%= link_to 'block', :controller => 'administrators',
+        :action => 'block_account', :id => admin %>
+  </li>
+<% end %>
+</ul>
