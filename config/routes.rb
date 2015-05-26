@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #post 'administrator/index'
   #get 'administrator/login' => "administrators#login"
 
+#administrator
   get 'administrators/login'
   post 'administrators/login_create'
   get 'administrators/logout'
@@ -29,6 +30,31 @@ Rails.application.routes.draw do
       get :administrator_type_edit
     end
   end
+
+  #member
+  scope :controller => "members" , :path => "members" do
+
+    get '' => "members#index", :as => "members"
+    get '/:table_number/:id/edit' => :edit, :as => "edit_member"
+    post '/:table_number/:id/update' => :update, :as => "update_member"
+    get '/:table_number/:id/block' => :destory, :as => "block_member"
+    post '/create' => :create, :as => "create_member"
+    get '/new' => :new, :as => "new_member"
+    get '/login' => :login, :as => "login_member"
+    get '/logout' => :logout, :as => "logout_member"
+    post '/login_create' => :login_create, :as => "login_create_member"
+  end
+  scope :controller => "authors", :path => "authors" do
+  end
+
+
+
+
+
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

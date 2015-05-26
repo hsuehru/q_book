@@ -1,0 +1,9 @@
+<ul>
+<% @members.each do |member| %>
+  <li>
+    <%= member.email %>
+  <%= link_to 'Edit', edit_member_path(member.table_number,member.id) %>
+  <%= link_to 'block_member', block_member_path(member.table_number,member.id) %>
+  </li>
+<% end %>
+</ul>

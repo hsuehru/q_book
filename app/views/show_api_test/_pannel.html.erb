@@ -30,6 +30,27 @@
         administrators_administrator_type_index_path,
         :class => "ajax-load" %>
   </p>
+  <p id="nav_title">會員</p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.member_list"),
+        members_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.member_new"),
+        new_member_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.member_login"),
+        login_member_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.member_logout"),
+        logout_member_path,
+        :class => "ajax-load" %>
+  </p>
   <p id="nav_item"> Item IV</p>
   <p id="nav_item"> Item V</p>
   <p id="nav_item"> Item VI</p>

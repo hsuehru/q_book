@@ -15,8 +15,10 @@
     login: "登入"
     logout: "登出"
     update: "更新"
-    send: "送出"
+    create: "建立"
+    submit: "送出"
     name: "名字"
+    nickname: "暱稱"
     administrator_type_name: "管理員型態名稱"
     
     manager:
@@ -27,6 +29,8 @@
       administrator_type_new: "管理員型態新增"
       administrator_list: "管理員清單"
       administrator_type_list: "管理員型態清單"
+      member_list: "會員清單"
+      member_new: "會員註冊"
   db_type:
     administrator_type:
       master: "最高權限管理員"

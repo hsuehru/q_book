@@ -1,7 +1,8 @@
-<%= form_for @administrator, :url => { :controller => 'administrators', :action => 'update' } do |f| %>
-    <%=f.label :nickname,t("view.nickname")%>
-    <%=f.text_field :nickname %>
+<%= form_for :member, :url => create_member_path do |f| %>
+    <%= f.label :email, t("view.email") %>
+    <%= f.text_field :email %>
     <br>
+
     <%= f.label :password, t("view.password") %>
     <%= f.password_field :password %>
     <br>
@@ -10,7 +11,7 @@
     <%= f.password_field :password_confirm %>
     <br>
 
-    <%= f.submit t("view.update") %>
+    <%= f.submit t("view.create") %>
     <br>
 <% end %>
 

@@ -59,7 +59,8 @@ class AdministratorsController < ApplicationController
   def block_account
     @message = Hash.new
     @current_admin = current_admin
-    if @current_admin.administrator_type.name == "master"
+    if !@current_admin.nil? && 
+       @current_admin.administrator_type.name == "master"
       @admin=Administrator.find(params[:id])
       @admin.active=false
       if @admin.save
@@ -138,12 +139,17 @@ class AdministratorsController < ApplicationController
     @message = Hash.new
     @param = administrator_login_params 
     @administrator = Administrator.find_by(:email => @param[:email])
-    if @administrator && @administrator.authenticate(@param[:password])
-      @message[:result] = true
-      admin_sign_in(@administrator)
-    else
+    if @administrator.active = false
       @message[:result] = false
       @message[:error_message] = I18n.t("error_info.login_error")
+    else  
+      if @administrator && @administrator.authenticate(@param[:password])
+        @message[:result] = true
+        admin_sign_in(@administrator)
+      else
+        @message[:result] = false
+        @message[:error_message] = I18n.t("error_info.login_error")
+      end
     end
     render :json => @message.to_json, :layout => false
       
@@ -151,7 +157,10 @@ class AdministratorsController < ApplicationController
 
   def logout
     admin_sign_out
-    redirect_to show_api_test_index_path
+    @message = Hash.new
+    @message[:result] = true
+    render :json => @message.to_json
+    #redirect_to show_api_test_index_path
   end
 
 private
@@ -168,7 +177,7 @@ private
   end
 
   def administrator_update_params
-    params.require(:administrator).permit(:password, :administrator_type_id)
+    params.require(:administrator).permit(:password, :administrator_type_id,    :nickname)
   end
 
   def administrator_login_params

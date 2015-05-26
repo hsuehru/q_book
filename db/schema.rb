@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "authors", force: :cascade do |t|
-    t.string   "email",                limit: 100
-    t.string   "password",             limit: 50
+    t.string   "email",                limit: 100,   null: false
+    t.string   "password_digest",      limit: 100
     t.string   "first_name",           limit: 100
     t.string   "last_name",            limit: 100
     t.string   "nickname",             limit: 20
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20150505105107) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
+
+  add_index "authors", ["email"], name: "index_authors_on_email", using: :btree
 
   create_table "black_lists", force: :cascade do |t|
     t.integer  "member_table_number", limit: 4
@@ -182,40 +184,46 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "member_table_1s", force: :cascade do |t|
-    t.string   "email",             limit: 100
-    t.string   "password",          limit: 50
+    t.string   "email",             limit: 100,                   null: false
+    t.string   "password_digest",   limit: 100,                   null: false
     t.string   "first_name",        limit: 100
     t.string   "last_name",         limit: 100
     t.string   "nickname",          limit: 20
     t.date     "birthday"
     t.boolean  "gender",            limit: 1
-    t.boolean  "active",            limit: 1
+    t.boolean  "active",            limit: 1,     default: true
     t.string   "web_session_id",    limit: 255
     t.string   "phone_session_id",  limit: 255
     t.text     "favorite_list",     limit: 65535
-    t.boolean  "read_message",      limit: 1
+    t.boolean  "read_message",      limit: 1,     default: false
     t.datetime "read_message_date"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "table_number",      limit: 2,     default: "1"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
+  add_index "member_table_1s", ["email"], name: "index_member_table_1s_on_email", using: :btree
+
   create_table "member_table_2s", force: :cascade do |t|
-    t.string   "email",             limit: 100
-    t.string   "password",          limit: 50
+    t.string   "email",             limit: 100,                   null: false
+    t.string   "password_digest",   limit: 100,                   null: false
     t.string   "first_name",        limit: 100
     t.string   "last_name",         limit: 100
     t.string   "nickname",          limit: 20
     t.date     "birthday"
     t.boolean  "gender",            limit: 1
-    t.boolean  "active",            limit: 1
+    t.boolean  "active",            limit: 1,     default: true
     t.string   "web_session_id",    limit: 255
     t.string   "phone_session_id",  limit: 255
     t.text     "favorite_list",     limit: 65535
-    t.boolean  "read_message",      limit: 1
+    t.boolean  "read_message",      limit: 1,     default: false
     t.datetime "read_message_date"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "table_number",      limit: 2,     default: "2"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
+
+  add_index "member_table_2s", ["email"], name: "index_member_table_2s_on_email", using: :btree
 
   create_table "post_table_1s", force: :cascade do |t|
     t.integer  "book_series_id",      limit: 4
