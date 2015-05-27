@@ -10,12 +10,14 @@
     <%= f.label :password_confirm, t("view.password_confirm") %>
     <%= f.password_field :password_confirm %>
     <br>
+    <%= f.label :administrator_type_id,t("view.administrator_type_name")%>
     <%=  f.select(:administrator_type_id, options_for_select(
-         @administrator_types.map{|i| [t("db_type.administrator_type.#{i.name}") , i.id]})) %>
+         @administrator_types.map{|i|
+          [t("db_type.administrator_type.#{i.name}") , i.id]})) %>
     <%=%>
     <br>
 
-    <%= f.submit t("view.send") %>
+    <%= f.submit t("view.submit") %>
     <br>
     <% a="master" %>
 <% end %>

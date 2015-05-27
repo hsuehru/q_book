@@ -49,7 +49,7 @@ module MembersHelper
   end
 
   def member_signed_in?
-    !current_admin.nil?
+    !current_member.nil?
   end
 
   def current_member

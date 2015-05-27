@@ -1,0 +1,17 @@
+<%= form_for @author, :url => create_author_path do |f| %>
+    <%= f.label :email, t("view.email") %>
+    <%= f.email_field :email %>
+    <br>
+
+    <%= f.label :password, t("view.password") %>
+    <%= f.password_field :password %>
+    <br>
+
+    <%= f.label :password_confirm, t("view.password_confirm") %>
+    <%= f.password_field :password_confirm %>
+    <br>
+
+    <%= f.submit t("view.create") %>
+    <br>
+<% end %>
+

@@ -8,6 +8,7 @@
     wrrong_identity: "身分錯誤，請確認身分"
     update_error: "更新資料失敗，請重新嘗試"
     destroy_error: "資料刪除失敗，請確認所要刪除的資料是否存在"
+    create_error: "建立失敗，請確認名稱是否輸入正確"
   view:
     email: "電子郵件"
     password: "密碼"
@@ -20,6 +21,8 @@
     name: "名字"
     nickname: "暱稱"
     administrator_type_name: "管理員型態名稱"
+    book_sales_account_type_name: "書商帳戶型態名稱"
+    publish_company_name: "出版社名稱"
     
     manager:
       administrator_register: "管理員註冊"
@@ -31,7 +34,29 @@
       administrator_type_list: "管理員型態清單"
       member_list: "會員清單"
       member_new: "會員註冊"
+      member_login: "會員登入"
+      member_logout: "會員登出"
+      author_list: "作者清單"
+      author_register: "作者註冊"
+      author_login: "作者登入"
+      author_logout: "作者登出"
+      publish_list: "出版社清單"
+      publish_register: "出版社新增"
+      publish_account_list: "publish_account_list可以刪除"
+      publish_account_new: "出版社業務帳號新增(直接加入出版社)"
+      publish_manager_list: "出版社管理員清單"
+      publish_manager_list_add: "出版社管理員新增"
+      publish_sales_list: "出版社業務清單"
+      publish_sales_add: "出版社業務新增"
+      publish_author_list: "出版社作者清單"
+      publish_author_add: "出版社作者新增"
+      publish_author_required_list: "作者請求加入清單"
+      publish_book_sales_account_type_list: "出版社業務型態清單"
   db_type:
     administrator_type:
       master: "最高權限管理員"
       normal: "管理員"
+    book_seles_account_type:
+      master: "最高權限管理員"
+      normal: "管理員"
+      sales: "業務"

@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "authors", force: :cascade do |t|
-    t.string   "email",                limit: 100,   null: false
+    t.string   "email",                limit: 100,                  null: false
     t.string   "password_digest",      limit: 100
     t.string   "first_name",           limit: 100
     t.string   "last_name",            limit: 100
@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 20150505105107) do
     t.date     "birthday"
     t.boolean  "gender",               limit: 1
     t.text     "book_table_isbn_list", limit: 65535
-    t.boolean  "active",               limit: 1
+    t.boolean  "active",               limit: 1,     default: true
     t.string   "web_session_id",       limit: 255
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   add_index "authors", ["email"], name: "index_authors_on_email", using: :btree
@@ -94,18 +94,21 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "book_sales_accounts", force: :cascade do |t|
-    t.string   "email",                      limit: 100
-    t.string   "password",                   limit: 50
+    t.string   "email",                      limit: 100,                  null: false
+    t.string   "password_digest",            limit: 100
     t.string   "first_name",                 limit: 100
     t.string   "last_name",                  limit: 100
     t.string   "nickname",                   limit: 20
     t.date     "birthday"
     t.text     "publish_id_list",            limit: 65535
     t.integer  "book_sales_account_type_id", limit: 4
-    t.boolean  "active",                     limit: 1
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.boolean  "active",                     limit: 1,     default: true
+    t.string   "web_session_id",             limit: 255
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
   end
+
+  add_index "book_sales_accounts", ["email"], name: "index_book_sales_accounts_on_email", using: :btree
 
   create_table "book_series", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -241,7 +244,7 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "publish_companies", force: :cascade do |t|
-    t.string   "name",                  limit: 50
+    t.string   "name",                  limit: 50,    null: false
     t.text     "address",               limit: 65535
     t.text     "manager_sales_id_list", limit: 65535
     t.text     "sales_id_list",         limit: 65535
@@ -252,6 +255,8 @@ ActiveRecord::Schema.define(version: 20150505105107) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
+
+  add_index "publish_companies", ["name"], name: "index_publish_companies_on_name", using: :btree
 
   create_table "reply_table_1s", force: :cascade do |t|
     t.integer  "post_table_number",   limit: 4

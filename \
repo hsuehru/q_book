@@ -1,0 +1,10 @@
+class BookSalesAccountType < ActiveRecord::Base
+  validates :name, :presence => true, :uniqueness => true
+  validates :email, :allow_blank => true,
+                    :uniqueness => { :case_sensitive => false },
+                    :format => { :with => /\A[^@]+@[^@]+\z/ },
+                    :if => BookSalesAccountType.have_email?
+  def self.have_email?
+    !self.email.nil?
+  end
+end

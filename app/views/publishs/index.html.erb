@@ -1,0 +1,8 @@
+<ul>
+<% @publish_companies.each do |publish_company| %>
+  <li>
+    <%= publish_company.name %>
+  <%= link_to 'Edit', edit_publish_path(publish_company) %>
+  </li>
+<% end %>
+</ul>

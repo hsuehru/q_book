@@ -1,0 +1,23 @@
+<%=  form_for @publish_company, :url => {:controller => :publishs,
+      :action => :update}  do |f|%>
+<%= f.label :name, t("view.name") %>
+<%= f.text_field :name %>
+<br>
+
+<%=f.label :email, t("view.email")%>
+<%=f.email_field :email %>
+<br>
+
+<%=f.label :address, t("view.address")%>
+<%=f.text_field :address %>
+<br>
+
+<%=f.label :tel, t("view.tel")%>
+<%=f.text_field :tel %>
+<br>
+
+<%=f.label :fax, t("view.fax")%>
+<%=f.text_field :fax %>
+<br>
+<%= f.submit t("view.update")%>
+<% end %>

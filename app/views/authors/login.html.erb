@@ -1,0 +1,10 @@
+<%=  form_for @author, :url =>{:controller => "authors",
+      :action => "login_create"}  do |f|%>
+<%= f.label :email, t("view.email") %>
+<%= f.email_field :email %>
+<br>
+<%=f.label :password, t("view.password")%>
+<%=f.password_field :password %>
+<br>
+<%= f.submit t("view.submit")%>
+<% end %>

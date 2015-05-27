@@ -1,0 +1,9 @@
+<ul>
+<% @book_sales_account_types.each do |account_type| %>
+  <li>
+    <%= account_type.name %>
+  <%= link_to 'Edit',
+        book_sales_account_type_edit_publish_path(account_type) %>
+  </li>
+<% end %>
+</ul>

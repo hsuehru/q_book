@@ -1,0 +1,8 @@
+<ul>
+<% @authors.each do |author| %>
+  <li>
+    <%= author.email %>
+  <%= link_to 'Edit', edit_author_path(author) %>
+  </li>
+<% end %>
+</ul>

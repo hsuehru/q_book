@@ -84,58 +84,8 @@
         :class => "ajax-load" %>
   </p>
   <p id="nav_item">
-    <%= link_to t("view.manager.publish_account_list"),
-        accounts_index_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_account_new"),
-        account_new_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_manager_list"),
-        managers_index_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_manager_list_add"),
-        manager_list_edit_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_sales_list"),
-        sales_index_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_sales_add"),
-        sales_list_edit_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_author_list"),
-        author_index_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_author_add"),
-        author_list_edit_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_author_required_list"),
-        author_required_list_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_book_sales_account_type_list"),
-        book_sales_account_type_index_publish_path,
-        :class => "ajax-load" %>
-  </p>
-  <p id="nav_item">
-    <%= link_to t("view.manager.publish_book_sales_account_type_add"),
-        book_sales_account_type_new_publish_path,
+    <%= link_to t("view.manager.publish_edit"),
+        edi_publish_path,
         :class => "ajax-load" %>
   </p>
   <p id="nav_item"> Item IV</p>

@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   include ApplicationHelper
   require 'active_record_union'
   def index
-    @members = MemberTableOne.all.union(MemberTableTwo.all).order(:email)
+    @members = MemberTableOne.all.union(MemberTableTwo.all).order(:email).page(params[:page]).per(2)
     #@members = get_all_members
     #@members = MemberTableOne.all
   end

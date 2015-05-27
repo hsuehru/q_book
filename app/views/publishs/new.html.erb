@@ -1,0 +1,9 @@
+<%= form_for :publish, :url => create_publish_path do |f| %>
+    <%= f.label :name, t("view.name") %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.submit t("view.create") %>
+    <br>
+<% end %>
+

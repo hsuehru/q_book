@@ -1,0 +1,32 @@
+<%= form_for :account_create,
+      :url => account_create_publish_path do |f| %>
+    <%= f.label :email, t("view.email") %>
+    <%= f.email_field :email %>
+    <br>
+
+    <%= f.label :password, t("view.password") %>
+    <%= f.password_field :password %>
+    <br>
+
+    <%= f.label :password_confirm, t("view.password_confirm") %>
+    <%= f.password_field :password_confirm %>
+    <br>
+
+    <%= f.label :book_seles_account_type_id, 
+          t("view.book_sales_account_type_name") %>
+    <%= f.select(:book_sales_account_type_id, options_for_select(
+          @book_sales_account_types.map{|i| 
+            [t("db_type.book_seles_account_type.#{i.name}"),i.id]}))%>
+    <br>
+
+    <%= f.label :publish_commapany_id, 
+          t("view.publish_company_name") %>
+    <%= f.select(:publish_company_id, options_for_select(
+          @publish_commapies.map{|i| 
+            [t("#{i.name}"),i.id]}))%>
+    <br>
+
+    <%= f.submit t("view.create") %>
+    <br>
+<% end %>
+
