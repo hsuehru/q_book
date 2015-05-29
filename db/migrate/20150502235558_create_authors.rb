@@ -10,7 +10,7 @@ class CreateAuthors < ActiveRecord::Migration
       t.boolean :gender
       t.text :book_table_isbn_list
       t.boolean :active, :default => true
-      t.string :web_session_id
+      t.string :web_session_id, :unique => true
 
       t.timestamps null: false
     end

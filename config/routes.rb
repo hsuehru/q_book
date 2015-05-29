@@ -70,6 +70,7 @@ Rails.application.routes.draw do
     get '/:id/edit' => :edit, :as => "edit_publish"
     patch '/:id/update' => :update, :as => "update_publish"
     post '/create' => :create, :as => "create_publish"
+    delete '/:id/delete' => :delete, :as => "delete_publish"
     get '/account_index' => :account_index, :as => "accounts_index_publish"
     get '/account_new' => :account_new, :as => "account_new_publish"
     post '/account_create' => :account_create, :as => "account_create_publish"
@@ -78,8 +79,12 @@ Rails.application.routes.draw do
       :as => "manager_list_edit_publish"
     patch '/manager_list_add' => :manager_list_add,
       :as => "manager_list_add_publish"
-    delete "/manager_list_remove" => :manager_list_remove,
-      :as => "manager_list_remove_publish"
+    delete "/:publish_name/:id/manager_master_list_remove" => 
+      :manager_master_list_remove,
+      :as => "manager_master_list_remove_publish"
+    delete "/:publish_name/:id/manager_sales_list_remove" => 
+      :manager_sales_list_remove,
+      :as => "manager_sales_list_remove_publish"
     get "/sales_index" => :sales_index, :as => "sales_index_publish"
     get "/sales_list_edit" => :sales_list_edit,
       :as => "sales_list_edit_publish"

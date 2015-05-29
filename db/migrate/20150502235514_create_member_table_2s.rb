@@ -9,8 +9,8 @@ class CreateMemberTable2s < ActiveRecord::Migration
       t.date :birthday
       t.boolean :gender
       t.boolean :active, :default => true
-      t.string :web_session_id
-      t.string :phone_session_id
+      t.string :web_session_id, :unique => true
+      t.string :phone_session_id, :unique => true
       t.text :favorite_list
       t.boolean :read_message, :default => false
       t.datetime :read_message_date

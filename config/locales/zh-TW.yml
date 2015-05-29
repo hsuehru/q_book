@@ -9,6 +9,7 @@
     update_error: "更新資料失敗，請重新嘗試"
     destroy_error: "資料刪除失敗，請確認所要刪除的資料是否存在"
     create_error: "建立失敗，請確認名稱是否輸入正確"
+    sales_right_error: "權限不符，請確認帳戶權限"
   view:
     email: "電子郵件"
     password: "密碼"

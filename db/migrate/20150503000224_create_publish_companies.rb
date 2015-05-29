@@ -3,6 +3,7 @@ class CreatePublishCompanies < ActiveRecord::Migration
     create_table :publish_companies do |t|
       t.string :name, :limit => "50",:unique => true, :null => false
       t.text :address
+      t.text :manager_master_id_list
       t.text :manager_sales_id_list
       t.text :sales_id_list
       t.text :author_id_list

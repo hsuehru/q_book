@@ -8,7 +8,7 @@ class CreateAdministrators < ActiveRecord::Migration
       t.string :nickname, :limit => "20"
       t.references :administrator_type, :null => false
       t.boolean :active, :default => true
-      t.string :web_session_id
+      t.string :web_session_id, :unique => true
 
       t.timestamps null: false
     end

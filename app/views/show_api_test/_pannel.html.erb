@@ -84,6 +84,16 @@
         :class => "ajax-load" %>
   </p>
   <p id="nav_item">
+    <%= link_to t("view.manager.publish_login"),
+        login_publish_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.publish_logout"),
+        logout_publish_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
     <%= link_to t("view.manager.publish_account_list"),
         accounts_index_publish_path,
         :class => "ajax-load" %>

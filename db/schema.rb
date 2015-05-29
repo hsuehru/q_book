@@ -94,18 +94,17 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "book_sales_accounts", force: :cascade do |t|
-    t.string   "email",                      limit: 100,                  null: false
-    t.string   "password_digest",            limit: 100
-    t.string   "first_name",                 limit: 100
-    t.string   "last_name",                  limit: 100
-    t.string   "nickname",                   limit: 20
+    t.string   "email",           limit: 100,                  null: false
+    t.string   "password_digest", limit: 100
+    t.string   "first_name",      limit: 100
+    t.string   "last_name",       limit: 100
+    t.string   "nickname",        limit: 20
     t.date     "birthday"
-    t.text     "publish_id_list",            limit: 65535
-    t.integer  "book_sales_account_type_id", limit: 4
-    t.boolean  "active",                     limit: 1,     default: true
-    t.string   "web_session_id",             limit: 255
-    t.datetime "created_at",                                              null: false
-    t.datetime "updated_at",                                              null: false
+    t.text     "publish_id_list", limit: 65535
+    t.boolean  "active",          limit: 1,     default: true
+    t.string   "web_session_id",  limit: 255
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   add_index "book_sales_accounts", ["email"], name: "index_book_sales_accounts_on_email", using: :btree
@@ -244,16 +243,17 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "publish_companies", force: :cascade do |t|
-    t.string   "name",                  limit: 50,    null: false
-    t.text     "address",               limit: 65535
-    t.text     "manager_sales_id_list", limit: 65535
-    t.text     "sales_id_list",         limit: 65535
-    t.text     "author_id_list",        limit: 65535
-    t.string   "tel",                   limit: 15
-    t.string   "fax",                   limit: 15
-    t.string   "email",                 limit: 100
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "name",                   limit: 50,    null: false
+    t.text     "address",                limit: 65535
+    t.text     "manager_master_id_list", limit: 65535
+    t.text     "manager_sales_id_list",  limit: 65535
+    t.text     "sales_id_list",          limit: 65535
+    t.text     "author_id_list",         limit: 65535
+    t.string   "tel",                    limit: 15
+    t.string   "fax",                    limit: 15
+    t.string   "email",                  limit: 100
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "publish_companies", ["name"], name: "index_publish_companies_on_name", using: :btree

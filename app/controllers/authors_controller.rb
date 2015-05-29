@@ -62,7 +62,7 @@ class AuthorsController < ApplicationController
 
   def logout
     @message = Hash.new
-    member_sign_out
+    author_sign_out
     @message[:result] = true
     render :json => @message.to_json
   end

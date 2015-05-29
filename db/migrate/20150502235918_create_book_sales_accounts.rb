@@ -8,9 +8,8 @@ class CreateBookSalesAccounts < ActiveRecord::Migration
       t.string :nickname, :limit => "20"
       t.date :birthday
       t.text :publish_id_list
-      t.references :book_sales_account_type
       t.boolean :active, :default => true
-      t.string :web_session_id
+      t.string :web_session_id, :unique => true
 
       t.timestamps null: false
     end
