@@ -1,0 +1,20 @@
+<h3>業務</h3>
+<% %>
+<% @publish_sales_list.each do |publish, hash_value| %>
+<%= publish.name %>
+<ul>
+<%  #@publish_companies.each do |publish_company| %>
+<%hash_value.each do |value| %>
+  <li>
+<% %>
+
+<%= value["email"] %>
+ (<%= (value["last_name"].nil?)? "未設定名字": value["last_name"]%>)
+  <% #link_to 'Edit', edit_publish_path(publish_company) %>
+  <%= link_to "delete",
+    sales_list_remove_publish_path(publish.id,value[:id]), :method => :delete%>
+  </li>
+<% end %>
+</ul>
+
+<% end %>

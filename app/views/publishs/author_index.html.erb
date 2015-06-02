@@ -1,0 +1,19 @@
+<h3>作者</h3>
+<% %>
+<% @author_list.each do |publish, authors| %>
+<%= publish.name %>
+<ul>
+<%  #@publish_companies.each do |publish_company| %>
+<% authors.each do |author| %>
+  <li>
+
+<%= author["email"] %>
+ (<%= (author["last_name"].nil?)? "未設定名字": value["last_name"]%>)
+  <% #link_to 'Edit', edit_publish_path(publish_company) %>
+  <%= link_to "delete",
+    author_list_remove_publish_path(publish.id,author[:id]), :method => :delete%>
+  </li>
+<% end %>
+</ul>
+
+<% end %>

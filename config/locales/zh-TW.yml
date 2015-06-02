@@ -10,6 +10,11 @@
     destroy_error: "資料刪除失敗，請確認所要刪除的資料是否存在"
     create_error: "建立失敗，請確認名稱是否輸入正確"
     sales_right_error: "權限不符，請確認帳戶權限"
+    data_exist_error: "資料已存在，請重新確認"
+    sales_exist_other_right_error: 
+      "帳戶已有其他權限，若要改變請先移除權限"
+    email_not_exist_error: "電子信箱不存在"
+
   view:
     email: "電子郵件"
     password: "密碼"

@@ -42,6 +42,38 @@ module PublishsHelper
     end
   end
 
+  def remove_from_publish_id_list( publish_company, sales_account_type_id,
+        book_sales)
+    case sales_account_type_id.to_s
+      when BookSalesAccountType.find_by(:name => "master").id.to_s
+          id_list = publish_company.manager_master_id_list.split(",")
+          id_list.delete(book_sales.id.to_s)
+          id_list.uniq!
+          publish_company.manager_master_id_list = id_list.join(",")
+      when BookSalesAccountType.find_by(:name => "normal").id.to_s
+          id_list = publish_company.manager_sales_id_list.split(",")
+          id_list.delete(book_sales.id.to_s)
+          id_list.uniq!
+          publish_company.manager_sales_id_list = id_list.join(",")
+      when BookSalesAccountType.find_by(:name => "sales").id.to_s
+          id_list = publish_company.sales_id_list.split(",")
+          id_list.delete(book_sales.id.to_s)
+          id_list.uniq!
+          publish_company.sales_id_list = id_list.join(",")
+      else
+        return nil
+    end
+    return publish_company
+  end
+
+  def append_to_sales_publish_id_list( book_sales, publish_company)
+    book_sales_publish_id_list = book_sales.publish_id_list.split(",")
+    book_sales_publish_id_list.append(publish_company.id.to_s)
+    book_sales.publish_id_list = book_sales_publish_id_list.join(",")
+    return book_sales
+  end
+
+
   def append_to_publish_id_list( publish_company, sales_account_type_id,
         book_sales)
     case sales_account_type_id.to_s

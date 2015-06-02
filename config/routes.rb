@@ -77,25 +77,28 @@ Rails.application.routes.draw do
     get '/manager_index' => :manager_index, :as => "managers_index_publish"
     get '/manager_list_edit' => :manager_list_edit,
       :as => "manager_list_edit_publish"
-    patch '/manager_list_add' => :manager_list_add,
+    post '/manager_list_add' => :manager_list_add,
       :as => "manager_list_add_publish"
-    delete "/:publish_name/:id/manager_master_list_remove" => 
+    delete "/:publish_id/:id/manager_master_list_remove" => 
       :manager_master_list_remove,
       :as => "manager_master_list_remove_publish"
-    delete "/:publish_name/:id/manager_sales_list_remove" => 
+    delete "/:publish_id/:id/manager_sales_list_remove" => 
       :manager_sales_list_remove,
       :as => "manager_sales_list_remove_publish"
+    delete "/:publish_id/:id/sales_list_remove" => 
+      :sales_list_remove,
+      :as => "sales_list_remove_publish"
     get "/sales_index" => :sales_index, :as => "sales_index_publish"
     get "/sales_list_edit" => :sales_list_edit,
       :as => "sales_list_edit_publish"
-    patch "/:id/sales_list_add" => :sales_list_add,
+    post "/sales_list_add" => :sales_list_add,
       :as => "sales_list_add_publish"
     get "/author_index" => :author_index, :as => "author_index_publish"
     get "/author_list_edit" => :author_list_edit,
       :as => "author_list_edit_publish"
-    patch "/author_list_add" => :author_list_add,
+    post "/author_list_add" => :author_list_add,
       :as => "author_list_add_publish"
-    get "/:id/author_list_remove" => :author_list_remove,
+    delete "/:publish_id/:id/author_list_remove" => :author_list_remove,
       :as => "author_list_remove_publish"
     get "/author_required_list" => :author_required_list,
       :as => "author_required_list_publish"

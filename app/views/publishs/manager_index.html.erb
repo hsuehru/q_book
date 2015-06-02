@@ -1,7 +1,7 @@
 <h3>最高權限管理員</h3>
 <% %>
-<% @publish_manager_master_list.each do |publish_name, hash_value| %>
-<%= publish_name %>
+<% @publish_manager_master_list.each do |publish, hash_value| %>
+<%= publish.name %>
 <ul>
 <%  #@publish_companies.each do |publish_company| %>
 <%hash_value.each do |value| %>
@@ -12,7 +12,7 @@
  (<%= (value["last_name"].nil?)? "未設定名字": value["last_name"]%>)
   <% #link_to 'Edit', edit_publish_path(publish_company) %>
   <%= link_to "delete",
-    manager_master_list_remove_publish_path(publish_name,value[:id]), :method => :delete%>
+    manager_master_list_remove_publish_path(publish.id,value[:id]), :method => :delete%>
   </li>
 <% end %>
 </ul>
@@ -20,8 +20,8 @@
 <% end %>
 <h3>一般管理員</h3>
 <% %>
-<% @publish_manager_sales_list.each do |publish_name, hash_value| %>
-<%= publish_name %>
+<% @publish_manager_sales_list.each do |publish, hash_value| %>
+<%= publish.name %>
 <ul>
 <%  #@publish_companies.each do |publish_company| %>
 <%hash_value.each do |value| %>
@@ -31,7 +31,7 @@
 <%= value["email"] %>
  (<%= (value["last_name"].nil?)? "未設定名字": value["last_name"]%>)
   <%= link_to "delete",
-    manager_sales_list_remove_publish_path(publish_name,value[:id]), :method => :delete%>
+    manager_sales_list_remove_publish_path(publish.id,value[:id]), :method => :delete%>
   <% #link_to 'Edit', edit_publish_path(publish_company) %>
   </li>
 <% end %>

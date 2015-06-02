@@ -1,0 +1,25 @@
+<%= form_for :manager_list_add,
+      :url => manager_list_add_publish_path do |f| %>
+    <%= f.label :email, t("view.email") %>
+    <%= f.email_field :email %>
+    <br>
+
+
+    <%= f.label :book_seles_account_type_id, 
+          t("view.book_sales_account_type_name") %>
+    <%= f.select(:book_sales_account_type_id, options_for_select(
+          @book_sales_account_types.map{|i| 
+            [t("db_type.book_seles_account_type.#{i.name}"),i.id]}))%>
+    <br>
+
+    <%= f.label :publish_commapany_id, 
+          t("view.publish_company_name") %>
+    <%= f.select(:publish_company_id, options_for_select(
+          @current_sales_manager_master_publish_list.map{|i| 
+            [i.name,i.id]}))%>
+    <br>
+
+    <%= f.submit t("view.create") %>
+    <br>
+<% end %>
+
