@@ -1,0 +1,97 @@
+<%= form_for @book,:as =>:book_update, :url => update_book_path do |f| %>
+    <%= f.label :name, t("view.name") %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.hidden_field :isbn %>
+
+
+    <%= f.label :graph_count, t("view.graph_count") %>
+    <%= f.number_field :graph_count, :step => 1 %>
+    <br>
+
+
+
+    <%= f.label :page_number, t("view.page_number") %>
+    <%= f.number_field :page_number, :step => 1 %>
+    <br>
+
+    <%= f.label :publish_commapany_id,
+          t("view.publish_company_name") %>
+    <%= f.select(:publish_company_id, options_for_select(
+      @current_sales_manager_publish_list.map{|i|
+        [i.name,i.id]}))%>
+    <br>
+
+
+
+    <%= f.label :book_series_id,
+          t("view.book_series") %>
+    <%= f.select(:book_series_id, options_for_select(
+      @book_series_list.map{|i|
+        [i.name,i.id]}))%>
+    <br>
+
+    <%= f.label :language_id,
+          t("view.language") %>
+    <%= f.select(:language_id, options_for_select(
+      @languages.map{|i|
+        [t("view.#{i.name}"),i.id]}))%>
+    <br>
+
+
+    <%= f.label :category_id,
+          t("view.category") %>
+    <%= f.select(:category_id, options_for_select(
+      @categories.map{|i|
+        [t("view.#{i.name}"),i.id]}),{},
+        {:class => :category_id})%>
+
+    <br>
+
+
+    <%= f.label :category_item_id,
+          t("view.category_item") %>
+    <%= f.select(:category_item_id,
+        options_for_select(
+          @category_items.map{|i|
+          [t("view.#{i.name}"),i.id]
+        }),
+        {},
+        {:class => :category_item_id}) %>
+
+    <br>
+
+    <%= f.label :classification_type_id,
+          t("view.classification_type") %>
+    <%= f.select(:classification_type_id, options_for_select(
+      @classification_types.map{|i|
+        [t("view.#{i.name}"),i.id]}),
+        {},
+        {:class => :classification_type_id})%>
+
+    <br>
+
+    <%= f.label :author_name_list, t("view.author_name_list") %>
+    <%= f.text_field :author_name_list,
+          :placeholder => t("view.split_with_comma") %>
+    <br>
+    <%= f.label :translator_name_list, t("view.translator_name_list") %>
+    <%= f.text_field :translator_name_list,
+          :placeholder => t("view.split_with_comma") %>
+    <br>
+    <%= f.label :publish_date, t("view.publish_date") %>
+    <%= f.date_field :publish_date %>
+    <br>
+    <%= f.label :content_introduction, t("view.content_introduction") %>
+    <%= f.text_area :content_introduction %>
+    <br>
+
+    <%= f.label :active, t("view.active") %>
+    <%= f.check_box :active %>
+    <br>
+
+    <%= f.submit t("view.create") %>
+    <br>
+<% end %>
+

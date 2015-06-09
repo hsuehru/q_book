@@ -118,16 +118,16 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "book_table_1s", force: :cascade do |t|
-    t.string   "isbn",                   limit: 13
+    t.string   "name",                   limit: 255,                   null: false
+    t.string   "isbn",                   limit: 13,                    null: false
     t.integer  "graph_count",            limit: 4
-    t.string   "name",                   limit: 255
     t.text     "author_name_list",       limit: 65535
     t.text     "translator_name_list",   limit: 65535
     t.integer  "book_series_id",         limit: 4
     t.date     "publish_date"
     t.integer  "publish_company_id",     limit: 4
-    t.float    "rating",                 limit: 24
-    t.integer  "rating_count",           limit: 4
+    t.float    "rating",                 limit: 24,    default: 0.0
+    t.integer  "rating_count",           limit: 4,     default: 0
     t.integer  "language_id",            limit: 4
     t.integer  "category_id",            limit: 4
     t.integer  "category_item_id",       limit: 4
@@ -135,22 +135,23 @@ ActiveRecord::Schema.define(version: 20150505105107) do
     t.integer  "page_number",            limit: 4
     t.integer  "classification_type_id", limit: 4
     t.text     "fans_list",              limit: 65535
-    t.integer  "fans_count",             limit: 4
+    t.integer  "fans_count",             limit: 4,     default: 0
     t.text     "activity_id_list",       limit: 65535
-    t.boolean  "active",                 limit: 1
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.boolean  "active",                 limit: 1,     default: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
   end
 
+  add_index "book_table_1s", ["isbn"], name: "index_book_table_1s_on_isbn", using: :btree
+
   create_table "categories", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "language_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "category_items", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name",        limit: 255, null: false
     t.integer  "category_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -171,7 +172,7 @@ ActiveRecord::Schema.define(version: 20150505105107) do
   end
 
   create_table "languages", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

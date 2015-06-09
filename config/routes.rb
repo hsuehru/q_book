@@ -124,6 +124,48 @@ Rails.application.routes.draw do
 
 
 
+  #books
+#  resources :books do
+#    collection do
+      #get :book_series_new
+#    end
+
+#    member do
+#    end
+    #get "/book_series_new" => :book_series_new
+#  end
+
+  scope :controller => "books", :path => "book" do
+    get '' => :index,
+      :as => :books
+    get '/new' => :new,
+      :as => :new_book
+    post '/create' => :create,
+      :as => :create_book
+    get '/:isbn/upload_file_new' => :upload_file_new,
+      :as => :upload_file_new_book
+    post '/upload_file_create' => :upload_file_create,
+      :as => :upload_file_create_book
+    get '/:isbn/upload_file_edit' => :upload_file_edit,
+      :as => :upload_file_edit_book
+    get '/:isbn/upload_file_list' => :upload_file_list,
+      :as => :upload_file_list_book
+    get '/book_series_new' => :book_series_new,
+      :as => :book_series_new_book
+    get '/:isbn/download_qr_code' => :download_qr_code,
+      :as => :download_qr_code_book
+    post 'book_series_create' => :book_series_create,
+      :as => :book_series_create_book
+    get '/get_category_item/:category_id' => :get_category_item,
+      :as => :get_category_item
+    get '/:isbn/edit' => :edit,
+      :as => :edit_book
+    patch '/update' => :update,
+      :as => :update_book
+  end
+
+
+
 
 
 

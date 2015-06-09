@@ -148,6 +148,22 @@
         book_sales_account_type_new_publish_path,
         :class => "ajax-load" %>
   </p>
+  <p id="nav_title">書籍資訊</p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.book_list"),
+        books_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.book_series_new"),
+        book_series_new_book_path,
+        :class => "ajax-load" %>
+  </p>
+  <p id="nav_item">
+    <%= link_to t("view.manager.book_new"),
+        new_book_path,
+        :class => "ajax-load" %>
+  </p>
   <p id="nav_item"> Item IV</p>
   <p id="nav_item"> Item V</p>
   <p id="nav_item"> Item VI</p>

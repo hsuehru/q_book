@@ -1,0 +1,16 @@
+<ul>
+<% @book_list.each do |book| %>
+  <li>
+    <%= book.name %>
+  <%= link_to 'Edit', edit_book_path(book.isbn) %>
+  &nbsp
+  <%= link_to 'upload_file', upload_file_new_book_path(book.isbn) %>
+  &nbsp
+  <% link_to 'edit_upload_file', upload_file_edit_book_path(book.isbn) %>
+  &nbsp
+  <%= link_to 'upload_file_list', upload_file_list_book_path(book.isbn) %>
+  &nbsp
+  <%= link_to 'download_qr_code', download_qr_code_book_path(book.isbn) %>
+  </li>
+<% end %>
+</ul>

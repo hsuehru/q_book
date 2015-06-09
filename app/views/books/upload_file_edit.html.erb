@@ -1,0 +1,10 @@
+<%=%>
+<%= form_for :book_images, :html => {:multipart  => true},:url => upload_file_create_book_path do |f| %>
+<%= f.hidden_field :isbn, :value => @isbn%>
+<%@book.graph_count.times do%>
+<%=file_field_tag "file[]"%>
+<br>
+<%end%>
+<%=f.submit t("view.submit")%>
+<%=%>
+<% end %>

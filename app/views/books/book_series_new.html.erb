@@ -1,0 +1,16 @@
+<%= form_for :book_series_new, :url => book_series_create_book_path do |f| %>
+    <%= f.label :name, t("view.name") %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.label :publish_commapany_id,
+          t("view.publish_company_name") %>
+    <%= f.select(:publish_company_id, options_for_select(
+          @current_sales_manager_publish_list.map{|i|
+            [i.name,i.id]}))%>
+    <br>
+
+    <%= f.submit t("view.create") %>
+    <br>
+<% end %>
+
